@@ -1,13 +1,13 @@
 <template>
-  <HelloWorld />
+  <div class="home"></div>
 </template>
 
-<script>
-  import HelloWorld from '../components/HelloWorld'
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
-  export default {
-    components: {
-      HelloWorld
-    }
-  }
+@Component({
+  components: {}
+})
+export default class Home extends Vue {}
 </script>
