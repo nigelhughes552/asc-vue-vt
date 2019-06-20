@@ -11,7 +11,7 @@ const getters = {
 const actions = {
   async fetchTodos({ commit }) {
     const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos"
+      "https://localhost:44377/api/GetResponsibilitiesByPerson/9"
     );
 
     commit("setTodos", response.data);

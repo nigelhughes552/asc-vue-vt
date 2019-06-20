@@ -18,7 +18,7 @@
         class="todo"
         v-bind:class="{'is-complete':todo.completed}"
       >
-        {{ todo.title }}
+        {{todo.responsibility}}
         <i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
       </div>
     </div>

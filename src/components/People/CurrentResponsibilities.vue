@@ -5,7 +5,11 @@
         <v-card-title class="subheading grey lighten-4">{{title}}</v-card-title>
         <v-card-text>
           <ul>
-            <li style="list-style-type: square;" v-for="item in items">{{ item.message }}</li>
+            <li
+              style="list-style-type: square;"
+              v-for="item in allResponsibilities"
+              :key="item.id"
+            >{{ item.responsibility }}</li>
           </ul>
         </v-card-text>
       </v-card>
@@ -14,19 +18,26 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
-    return {
-      items: [
-        { message: "Acting Bursar 03/04/2018 -" },
-        { message: "Academic Secretary 01/04/2018 -" },
-        { message: "Acting Domestic Bursar 13/03/2018 -" },
-        { message: "Acting Domestic Bursar 13/03/2018 -" },
-        { message: "Librarian 01/10/2015 -" },
-        { message: "Diversity Fellow 06/06/2013 -" },
-        { message: "Camerarius  -" }
-      ]
-    };
+    return {};
+  },
+  methods: {
+    ...mapActions(["fetchResponsibilities"]),
+    onDblClick(todo) {
+      const updTodo = {
+        id: todo.id,
+        title: todo.title,
+        completed: !todo.completed
+      };
+
+      this.updateTodo(updTodo);
+    }
+  },
+  computed: mapGetters(["allResponsibilities"]),
+  created() {
+    this.fetchResponsibilities();
   },
   props: {
     title: String
