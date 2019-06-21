@@ -5,7 +5,11 @@
         <v-card-title class="subheading grey lighten-4">{{title}}</v-card-title>
         <v-card-text>
           <ul>
-            <li style="list-style-type: square;" v-for="item in items">{{ item.message }}</li>
+            <li
+              style="list-style-type: square;"
+              v-for="item in allFellowships"
+              :key="item.id"
+            >{{ item.fellowship1 }} {{item.startDate | formatDate}} - {{item.endDate | formatDate}}</li>
           </ul>
         </v-card-text>
       </v-card>
@@ -14,11 +18,18 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   data() {
-    return {
-      items: [{ message: "Senior Research Fellow 01/01/2006 -" }]
-    };
+    return {};
+  },
+  methods: {
+    ...mapActions(["fetchFellowships"])
+  },
+  computed: mapGetters(["allFellowships"]),
+  created() {
+    this.fetchFellowships(10);
   },
   props: {
     title: String

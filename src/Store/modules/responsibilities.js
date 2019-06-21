@@ -9,9 +9,9 @@ const getters = {
 };
 
 const actions = {
-  async fetchResponsibilities({ commit }) {
+  async fetchResponsibilities({ commit }, id) {
     const response = await axios.get(
-      "https://localhost:44377/api/GetResponsibilitiesByPerson/9"
+      `https://localhost:44377/api/GetResponsibilitiesByPerson/${id}`
     );
 
     commit("setResponsibilities", response.data);

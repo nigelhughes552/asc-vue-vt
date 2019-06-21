@@ -24,23 +24,15 @@ export default {
     return {};
   },
   methods: {
-    ...mapActions(["fetchResponsibilities"]),
-    onDblClick(todo) {
-      const updTodo = {
-        id: todo.id,
-        title: todo.title,
-        completed: !todo.completed
-      };
-
-      this.updateTodo(updTodo);
-    }
+    ...mapActions(["fetchResponsibilities"])
   },
   computed: mapGetters(["allResponsibilities"]),
   created() {
-    this.fetchResponsibilities();
+    this.fetchResponsibilities(this.id);
   },
   props: {
-    title: String
+    title: String,
+    id: Number
   }
 };
 </script>

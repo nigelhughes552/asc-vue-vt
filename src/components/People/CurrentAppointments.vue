@@ -5,7 +5,11 @@
         <v-card-title class="subheading grey lighten-4">{{title}}</v-card-title>
         <v-card-text>
           <ul>
-            <li style="list-style-type: square;" v-for="item in items">{{ item.message }}</li>
+            <li
+              style="list-style-type: square;"
+              v-for="item in allAppointments"
+              :key="item.id"
+            >{{ item.appointment }} {{item.startDate | formatDate}} - {{item.endDate | formatDate}}</li>
           </ul>
         </v-card-text>
       </v-card>
@@ -14,14 +18,18 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   data() {
-    return {
-      items: [
-        { message: "Academic Administrator and Domestic Bursar -" },
-        { message: "Chichele Professor of Medieval History  -" }
-      ]
-    };
+    return {};
+  },
+  methods: {
+    ...mapActions(["fetchAppointments"])
+  },
+  computed: mapGetters(["allAppointments"]),
+  created() {
+    this.fetchAppointments(9);
   },
   props: {
     title: String
