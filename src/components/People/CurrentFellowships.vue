@@ -32,7 +32,8 @@ export default {
     this.fetchFellowships(10);
   },
   props: {
-    title: String
+    title: String,
+    id: Number
   }
 };
 </script>
