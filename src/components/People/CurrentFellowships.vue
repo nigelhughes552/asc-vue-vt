@@ -29,7 +29,7 @@ export default {
   },
   computed: mapGetters(["allFellowships"]),
   created() {
-    this.fetchFellowships(10);
+    this.fetchFellowships(this.id);
   },
   props: {
     title: String,

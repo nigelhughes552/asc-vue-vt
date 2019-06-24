@@ -11,7 +11,7 @@ const getters = {
 const actions = {
   async fetchResponsibilities({ commit }, id) {
     const response = await axios.get(
-      `https://localhost:44377/api/GetResponsibilitiesByPerson/${id}`
+      `http://192.168.1.50/api/GetResponsibilitiesByPerson/${id}`
     );
 
     commit("setResponsibilities", response.data);

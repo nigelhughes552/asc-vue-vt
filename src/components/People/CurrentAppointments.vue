@@ -29,10 +29,11 @@ export default {
   },
   computed: mapGetters(["allAppointments"]),
   created() {
-    this.fetchAppointments(9);
+    this.fetchAppointments(this.id);
   },
   props: {
-    title: String
+    title: String,
+    id: Number
   }
 };
 </script>

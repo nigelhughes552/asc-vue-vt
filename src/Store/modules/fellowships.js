@@ -11,7 +11,7 @@ const getters = {
 const actions = {
   async fetchFellowships({ commit }, id) {
     const response = await axios.get(
-      `https://localhost:44377/api/GetCurrentFellowships/${id}`
+      `http://192.168.1.50/api/GetCurrentFellowships/${id}`
     );
 
     commit("setFellowships", response.data);

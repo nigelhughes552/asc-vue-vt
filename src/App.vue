@@ -61,8 +61,6 @@
 
     <v-content>
       <v-container fluid>
-        <name-card></name-card>
-
         <router-view></router-view>
       </v-container>
     </v-content>
@@ -71,18 +69,16 @@
 </template>
 
 <script>
-import ToolBar from "./components/ToolBar";
-import PersonSideNav from "./components/PersonSideNav";
-import NameCard from "@/components/NameCard";
-import Todos from "@/components/todos.vue";
+import ToolBar from "@/components/ToolBar";
+import PersonSideNav from "@/components/PersonSideNav";
+import NameCard from "./components/People/NameCard";
 
 export default {
   name: "App",
   components: {
     ToolBar,
     PersonSideNav,
-    NameCard,
-    Todos
+    NameCard
   },
   data() {
     return {

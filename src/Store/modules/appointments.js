@@ -11,7 +11,7 @@ const getters = {
 const actions = {
   async fetchAppointments({ commit }, id) {
     const response = await axios.get(
-      `http://asc.webapi.com/api/GetCurrentAppointments/${id}`
+      `http://192.168.1.50/api/GetCurrentAppointments/${id}`
     );
 
     commit("setAppointments", response.data);
