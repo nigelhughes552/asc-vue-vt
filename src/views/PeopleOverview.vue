@@ -23,28 +23,7 @@ export default {
       id: 1
     };
   },
-  methods: {
-    ...mapActions([
-      "fetchResponsibilities",
-      "fetchFellowships",
-      "fetchAppointments",
-      "fetchPerson"
-    ]),
-    next: function(event) {
-      this.fetchResponsibilities(this.id);
-      this.fetchFellowships(this.id);
-      this.fetchAppointments(this.id);
-      this.fetchPerson(this.id);
-      this.id += 1;
-    },
-    previous: function(event) {
-      this.fetchResponsibilities(this.id);
-      this.fetchFellowships(this.id);
-      this.fetchAppointments(this.id);
-      this.fetchPerson(this.id);
-      this.id -= 1;
-    }
-  },
+
   components: {
     CurrentFellowships,
     CurrentAppointments,
