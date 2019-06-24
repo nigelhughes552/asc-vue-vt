@@ -2,11 +2,11 @@
   <v-layout>
     <v-flex xs12 sm6>
       <v-card>
-        <div mr-2 style="padding-left:16px;">
+        <v-flex pt-3 ml-3 xs12>
           <v-avatar size="100" tile>
-            <img src="fc.png" alt="avatar">
+            <img v-bind:src="personThumb" alt="avatar">
           </v-avatar>
-        </div>
+        </v-flex>
 
         <v-card-title primary-title>
           <div>
@@ -38,11 +38,12 @@ export default {
     return {};
   },
   methods: {
-    ...mapActions(["fetchPerson"])
+    ...mapActions(["fetchPerson", "fetchPersonThumb"])
   },
-  computed: mapGetters(["person"]),
+  computed: mapGetters(["person", "personThumb"]),
   created() {
     this.fetchPerson(this.id);
+    this.fetchPersonThumb(this.id);
   },
   props: {
     id: Number

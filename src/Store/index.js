@@ -5,6 +5,7 @@ import responsibilities from "./modules/responsibilities";
 import fellowships from "./modules/fellowships";
 import appointments from "./modules/appointments";
 import person from "./modules/person";
+import personThumb from "./modules/personThumb";
 
 // Load Vuex
 Vue.use(Vuex);
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     responsibilities,
     fellowships,
     appointments,
-    person
+    person,
+    personThumb
   }
 });

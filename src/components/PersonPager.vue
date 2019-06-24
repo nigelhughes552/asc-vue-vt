@@ -32,13 +32,15 @@ export default {
       "fetchResponsibilities",
       "fetchFellowships",
       "fetchAppointments",
-      "fetchPerson"
+      "fetchPerson",
+      "fetchPersonThumb"
     ]),
     next: function(event) {
       this.fetchResponsibilities(this.id);
       this.fetchFellowships(this.id);
       this.fetchAppointments(this.id);
       this.fetchPerson(this.id);
+      this.fetchPersonThumb(this.id);
       this.id += 1;
     },
     previous: function(event) {
@@ -46,6 +48,7 @@ export default {
       this.fetchFellowships(this.id);
       this.fetchAppointments(this.id);
       this.fetchPerson(this.id);
+      this.fetchPersonThumb(this.id);
       this.id -= 1;
     }
   }
